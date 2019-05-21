@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B6AC8F5B-6CD1-4A9F-8056-BA3B33F86567}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CrmProje.DAL</RootNamespace>
+    <AssemblyName>CrmProje.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CrmDBContext.cs" />
+    <Compile Include="IRepositories\IKategoriRepository.cs" />
+    <Compile Include="IRepositories\IMusteriIletisimRepository.cs" />
+    <Compile Include="IRepositories\IMusteriRepository.cs" />
+    <Compile Include="IRepositories\IPersonelRepository.cs" />
+    <Compile Include="IRepositories\ISiparisDetayRepository.cs" />
+    <Compile Include="IRepositories\ISiparisRepository.cs" />
+    <Compile Include="IRepositories\ITedarikciIletisimRepository.cs" />
+    <Compile Include="IRepositories\ITedarikciRepository.cs" />
+    <Compile Include="IRepositories\IUrunRepository.cs" />
+    <Compile Include="Migrations\201712161335507_CrmProjeDB.cs" />
+    <Compile Include="Migrations\201712161335507_CrmProjeDB.Designer.cs">
+      <DependentUpon>201712161335507_CrmProjeDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\KategoriRepository.cs" />
+    <Compile Include="Repositories\MusteriIletisimDTORepository.cs" />
+    <Compile Include="Repositories\MusteriIletisimRepository.cs" />
+    <Compile Include="Repositories\MusteriRepository.cs" />
+    <Compile Include="Repositories\PersonelRepository.cs" />
+    <Compile Include="Repositories\SiparisDetayRepository.cs" />
+    <Compile Include="Repositories\SiparisRepository.cs" />
+    <Compile Include="Repositories\TedarikciIletisimDTORepository.cs" />
+    <Compile Include="Repositories\TedarikciIletisimRepository.cs" />
+    <Compile Include="Repositories\TedarikciRepository.cs" />
+    <Compile Include="Repositories\UrunRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{6eaf0b03-f00c-4551-a749-ffca5c3d73c3}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CrmProje.DTO\CrmProje.DTO.csproj">
+      <Project>{e25ed106-03d3-4272-ac9d-3aefbb5290a3}</Project>
+      <Name>CrmProje.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CrmProje.Entity\CrmProje.Entity.csproj">
+      <Project>{5a21657a-8b56-4862-a6b9-ba693be54f10}</Project>
+      <Name>CrmProje.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712161335507_CrmProjeDB.resx">
+      <DependentUpon>201712161335507_CrmProjeDB.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
